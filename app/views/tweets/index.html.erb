@@ -2,10 +2,7 @@
 
 <h1 data-controller="hello">Tweeter</h1>
 
-<%= turbo_frame_tag "double_turbo_part1" do %>
-  <%= link_to 'Double turbo: ', double_turbo_path, class: 'btn btn-primary btn-sm' -%>
-  <%= @turbo_time %>
-<% end %>
+<%= render "double_turbos/link", turbo_time: @turbo_time %>
 
 <%= turbo_stream_from "tweets" %>
 
@@ -15,4 +12,8 @@
 
 <%= turbo_frame_tag "tweets" do %>
   <%= render @tweets %>
+<% end %>
+
+<%= turbo_frame_tag "double_turbo_part2" do %>
+  <%= @turbo_time %>
 <% end %>
