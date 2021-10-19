@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
     @tweet = Tweet.new
+    @turbo_time = Time.now
   end
 
   def show
