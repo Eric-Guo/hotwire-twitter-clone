@@ -1,4 +1,8 @@
-<%= turbo_frame_tag "double_turbo_part1" do %>
-  <%= link_to 'Double turbo: ', double_turbo_path, class: 'btn btn-primary btn-sm' -%>
-  <%= @turbo_time %>
+<%= turbo_stream.replace "double_turbo_part1" do %>
+  <%= render "double_turbos/link", turbo_time: @turbo_time %>
+<% end %>
+<%= turbo_stream.replace "double_turbo_part2" do %>
+  <%= turbo_frame_tag "double_turbo_part2" do %>
+    <%= @turbo_time %>
+  <% end %>
 <% end %>
